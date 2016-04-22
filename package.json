@@ -1,7 +1,7 @@
 {
   "name": "space-apps-2016",
   "version": "1.0.0",
-  "description": "",
+  "description": "Install node",
   "main": "server.js",
   "scripts": {
     "start": "gulp",
@@ -17,5 +17,18 @@
     "browser-sync": "^2.12.3",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mavance/SpaceApps2016.git"
+  },
+  "keywords": [
+    "Space",
+    "Apps",
+    "NASA"
+  ],
+  "bugs": {
+    "url": "https://github.com/mavance/SpaceApps2016/issues"
+  },
+  "homepage": "https://github.com/mavance/SpaceApps2016#readme"
 }
