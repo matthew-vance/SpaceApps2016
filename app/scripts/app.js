@@ -1,25 +1,16 @@
 //initialize app
-angular.module('app', []);
+angular.module('app', ['leaflet-directive']);
 
-angular.module('app').controller('MajorTom', [$window, function(){
-  
-  var bus = this;
-  bus.message = "Space Apps 2016 Space Tour!";
+angular.module('app').controller('MajorTom', MainCtrl);
 
-  bus.items = [ 'museum',
-  'restaurant',
-  'landmark',
-  'theater',
-  'meteorite crater'
-  ];
+function MainCtrl (){
+    var bus = this;
+    bus.message = "Space Apps 2016 Space Tour!";
 
-  var map = $window.L.map('map');
-  bus.MapModel = {
-    map: map,
-    basemaps : basemaps,
-    layers: layers,
-    zoom: 8
-
-  }
-
-}]);
+    bus.items = [ 'museum',
+    'restaurant',
+    'landmark',
+    'theater',
+    'meteorite crater'
+    ];
+}
