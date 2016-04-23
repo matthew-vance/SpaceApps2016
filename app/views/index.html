@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
     <head>
         <meta charset="utf-8">
         <title>Space Apps 2016</title>
@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
     </head>
-    <body>
+    <body ng-controller='MajorTom as bus'>
         <nav class='navbar navbar-default'>
         <ul>
-        <li>Poop</li>
+        <li>{{bus.message}}</li>
         </ul>
         </nav>
 
@@ -19,14 +19,16 @@
 
         <div class='row'>
           <div class='col-sm-4'>
-          <p>Trump ipsum dolor amet robert Pattinson should dump Kristen Stewart part of the beauty of me is that I’m very rich I’ve made a tremendous amount of money. Moron immigrants billions we need global warming. Loser they’re rapists. Beautiful women love me Robert Pattinson should dump Kristen Stewart.
-          </p>
+          <ul class='list-group'>
+            <li class='list-group-item' ng-repeat='item in bus.items'>
+              {{item}}
+            </li>
+          </ul>
           </div>
 
           <div class='col-sm-8'>
             <div class='col-sm-12'>
-            <p>I beat China all the time If Ivanka weren’t my daughter, perhaps I’d be dating her. Idiot you’re fired. Immigrants stupid. I fully understand why her husband left her for a man she’s a slob and some I assume are good people. They’re bringing crime my women are more beautiful immigrants.
-            </p>
+            <div id='map'/>
             </div>
 
             <div class='col-sm-12'>
