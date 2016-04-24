@@ -4,20 +4,25 @@ angular.module('app', ['leaflet-directive'])
 
 function MainCtrl($scope, $window, leafletData) {
     var bus = this;
-    bus.message = "Space Apps 2016 Space Tour!";
-    bus.info = "THIS IS NOT ABOUT DONALD TRUMP ANYMORE";
+    bus.message = "In My Backyard";
 
     bus.layers = {
         baselayers: {
             osm: {
                 name: "Open Street Map",
                 url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                type: "xyz"
+                type: "xyz",
+                options: {
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }
             },
             esri: {
                 name: "Aerial",
                 url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-                type: "xyz"
+                type: "xyz",
+                options: {
+                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }
             }
         }
     }
@@ -205,9 +210,9 @@ function MainCtrl($scope, $window, leafletData) {
 
         $window.navigator.geolocation.watchPosition(function(position) {
 
-            for(var i = 0; i < bus.items.length; i++){
+            for (var i = 0; i < bus.items.length; i++) {
                 var distanceToItem = getDistanceFromLatLonInKm(position.coords.latitude, position.coords.longitude, bus.items[i].marker.lat, bus.items[i].marker.lng);
-                if(distanceToItem <= 10){
+                if (distanceToItem <= 10) {
                     bus.displaySummary(bus.items[i]);
                 }
             }
