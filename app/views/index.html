@@ -16,20 +16,30 @@
             <div class='row'>
                 <div class='col-sm-4'>
                     <ul class='list-group'>
-                        <li class='list-group-item' ng-repeat='item in bus.items'>
-                            {{ item }}
+                        <li class='list-group-item' ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
+                            {{ item.name }}
                         </li>
                     </ul>
                 </div>
 
                 <div class='col-sm-8'>
                     <div class='col-sm-12'>
-                        <leaflet width="100%" height="480px" markers="bus.markers" center="bus.center"></leaflet>
+                        <leaflet width="100%" height="400px" markers="bus.markers" center="bus.center"></leaflet>
 
-                        <div class='col-sm-12'>
-                            <p>I’ve always had a great relationship with the Blacks the Blacks idiot. Greatest jobs president that God ever created stupid I beat China all the time. Mexico I have so many websites part of the beauty of me is that I’m very rich I’ve always had a
-                                great relationship with the Blacks. Ugly China and some I assume are good people winning. My women are more beautiful God helped me by giving me a certain brain I have many Chinese friends.
+                        <div class='col-sm-12 panel panel-default'>
+                            <div class='panel-body'>
+                            <h3>{{bus.name}}</h3>
+                            <p>
+
+                            <span ng-show='bus.description'>
+                            <a href='{{bus.description}}' target = '_blank'>Learn more about {{bus.name}}!</a>
+                            </span>
+
+                            <span ng-hide='bus.description'>
+                            NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
+                            </span>
                             </p>
+                            </div>
                         </div>
                     </div>
                 </div>
