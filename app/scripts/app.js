@@ -7,6 +7,21 @@ function MainCtrl($scope, $window, leafletData) {
     bus.message = "Space Apps 2016 Space Tour!";
     bus.info = "THIS IS NOT ABOUT DONALD TRUMP ANYMORE";
 
+    bus.layers = {
+        baselayers: {
+            osm: {
+                name: "Open Street Map",
+                url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                type: "xyz"
+            },
+            esri: {
+                name: "Aerial",
+                url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                type: "xyz"ial
+            }
+        }
+    }
+
     bus.items = [{
         name: "Glenn Research Center",
         marker: {
