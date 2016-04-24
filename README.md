@@ -6,4 +6,4 @@ run `npm install`
 
 run `npm start`
 
-view app at https://spaceapps2016.herokuapp.com/
+view app at https://inmybackyard.herokuapp.com/
