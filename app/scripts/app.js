@@ -17,7 +17,7 @@ function MainCtrl($scope, $window, leafletData) {
             esri: {
                 name: "Aerial",
                 url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-                type: "xyz"ial
+                type: "xyz"
             }
         }
     }
