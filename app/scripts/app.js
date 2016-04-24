@@ -90,53 +90,53 @@ function MainCtrl($scope) {
             name: "Stennis Space Flight Center",
             marker: {
                 id: 7,
-                lat: 30.3650418,
-                lng: -89.644145,
+                lat: 34.6614803,
+                lng: -86.6713569,
                 message: "John C. Stennis Space Flight Center",
                 focus: false,
                 draggable: false
             },
             link: "https://en.wikipedia.org/wiki/John_C._Stennis_Space_Center",
-            description: "The John C. Stennis Space Center, located in Hancock County, Mississippi, on the banks of the Pearl River at the Mississippi–Louisiana border, was NASA's largest rocket engine test facility until the end of the Space Shuttle program. It is currently used for rocket testing by over 30 local, state, national, international, private, and public companies and agencies. It contains the NASA Shared Services Center.[15]"
+            description: "George C. Marshall Space Flight Center (MSFC) is the place where the Saturn V rocket and Spacelab were developed. It is one of the largest center of NASA. Marshall is the agency's lead center for Space Shuttle propulsion and its external tank; payloads and related crew training; International Space Station (ISS) design and assembly; together with computers, networks, and information management. Located on the Redstone Arsenal near Huntsville, Alabama, MSFC is named in honor of General George Marshall."
         },
         {
-            name: "Ames Research Center",
+            name: "Marshall Space Flight Center",
             marker: {
                 id: 8,
-                lat: 37.4090697,
-                lng: -122.6153733,
-                message: "Ames Research Center",
+                lat: 34.6614803,
+                lng: -86.6713569,
+                message: "George C. Marshall Space Flight Center",
                 focus: false,
                 draggable: false
             },
-            link: "https://en.wikipedia.org/wiki/Ames_Research_Center",
-            description: "Ames Research Center (ARC) was founded on December 20, 1939 as a NACA laboratory, and became part of NASA in 1958, as part of the turnover from NACA. The center was named after Joseph Sweetman Ames, a founding member of the NACA. ARC is one of NASA’s 10 major field centers and is located in California's Silicon Valley. Historically, Ames was founded to do wind-tunnel research on the aerodynamics of propeller-driven aircraft; however, it has expanded its role to doing research and technology in aeronautics, spaceflight, and information technology. It provides leadership in astrobiology, small satellites, robotic lunar exploration, intelligent/adaptive systems and thermal protection."
+            link: "https://en.wikipedia.org/wiki/Marshall_Space_Flight_Center",
+            description: "George C. Marshall Space Flight Center (MSFC) is the place where the Saturn V rocket and Spacelab were developed. It is one of the largest center of NASA. Marshall is the agency's lead center for Space Shuttle propulsion and its external tank; payloads and related crew training; International Space Station (ISS) design and assembly; together with computers, networks, and information management. Located on the Redstone Arsenal near Huntsville, Alabama, MSFC is named in honor of General George Marshall."
         },
         {
-            name: "Armstrong Flight Research Center",
+            name: "Marshall Space Flight Center",
             marker: {
                 id: 9,
-                lat: 34.6103871,
-                lng: -118.0767681,
-                message: "Armstrong Flight Research Center",
+                lat: 34.6614803,
+                lng: -86.6713569,
+                message: "Marshall Space Flight Center",
                 focus: false,
                 draggable: false
             },
-            link: "https://en.wikipedia.org/wiki/Armstrong_Flight_Research_Center",
-            description: "The Armstrong Flight Research Center (AFRC), located inside Edwards Air Force Base, is an aeronautical research center operated by NASA. Armstrong is NASA's premier site for aeronautical research and operates some of the most advanced aircraft in the world. It is also the home of the Shuttle Carrier Aircraft (SCA), a modified Boeing 747 designed to carry a Space Shuttle orbiter back to Kennedy Space Center if one lands at Edwards. On December 31, 2012, the U.S. House of Representatives voted 404–0 to rename the centre previously known as Dryden in honor of Neil Armstrong, the first astronaut to walk on the surface of the moon;[10] President Barack Obama officially signed the change into law on January 16, 2014 [11]"
+            link: "https://en.wikipedia.org/wiki/Marshall_Space_Flight_Center",
+            description: "George C. Marshall Space Flight Center (MSFC) is the place where the Saturn V rocket and Spacelab were developed. It is one of the largest center of NASA. Marshall is the agency's lead center for Space Shuttle propulsion and its external tank; payloads and related crew training; International Space Station (ISS) design and assembly; together with computers, networks, and information management. Located on the Redstone Arsenal near Huntsville, Alabama, MSFC is named in honor of General George Marshall."
         },
         {
-            name: "Langley Research Center",
+            name: "Marshall Space Flight Center",
             marker: {
                 id: 10,
-                lat: 37.0900282,
-                lng: -76.3922393,
-                message: "Langley Research Center",
+                lat: 34.6614803,
+                lng: -86.6713569,
+                message: "Marshall Space Flight Center",
                 focus: false,
                 draggable: false
             },
-            link: "https://en.wikipedia.org/wiki/Langley_Research_Center",
-            description: "Langley Research Center (LaRC) is the oldest of NASA's field centers, located in Hampton, Virginia, United States. LaRC focuses primarily on aeronautical research, though the Apollo lunar lander was flight-tested at the facility and a number of high-profile space missions have been planned and designed on-site. Established in 1917 by the National Advisory Committee for Aeronautics, the Center currently devotes two-thirds of its programs to aeronautics, and the rest to space. LaRC researchers use more than 40 wind tunnels to study improved aircraft and spacecraft safety, performance, and efficiency. Between 1958 and 1963, when NASA started Project Mercury, LaRC served as the main office of the Space Task Group, with the office being transferred to the Manned Spacecraft Center (now the Lyndon B. Johnson Space Center) in Houston in 1962–63."
+            link: "https://en.wikipedia.org/wiki/Marshall_Space_Flight_Center",
+            description: "George C. Marshall Space Flight Center (MSFC) is the place where the Saturn V rocket and Spacelab were developed. It is one of the largest center of NASA. Marshall is the agency's lead center for Space Shuttle propulsion and its external tank; payloads and related crew training; International Space Station (ISS) design and assembly; together with computers, networks, and information management. Located on the Redstone Arsenal near Huntsville, Alabama, MSFC is named in honor of General George Marshall."
         }
     ];
 
@@ -156,13 +156,14 @@ function MainCtrl($scope) {
         lng: -98,
         zoom: 4
     };
-    
+
     bus.defaults = {
         scrollWheelZoom: false,
         minZoom: 4
     };
 
     bus.displaySummary = function(item){
+        bus.selectedItemId = item.marker.id;
         bus.name = item.name;
         bus.link = item.link;
         bus.description = item.description;
@@ -180,7 +181,7 @@ function MainCtrl($scope) {
             }
         }
 
-        bus.displaySummary(facility);
+        this.displaySummary(facility);
 
     });
 };

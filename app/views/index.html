@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
+        <link rel="stylesheet" href="styles/styles.css" media="screen" charset="utf-8">
     </head>
     <body ng-controller='MajorTom as bus'>
         <nav class='navbar navbar-default' ng-cloak>
@@ -16,7 +17,7 @@
             <div class='row'>
                 <div class='col-sm-4'>
                     <ul class='list-group'>
-                        <li class='list-group-item' ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
+                        <li class='list-group-item list-group-button' ng-class="bus.selectedItemId === item.marker.id ? 'list-group-button-selected' : ''" ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
                             {{ item.name }}
                         </li>
                     </ul>
@@ -24,10 +25,10 @@
 
                 <div class='col-sm-8'>
                     <div class='col-sm-12'>
-                        <leaflet width="100%" 
-                            height="400px" 
-                            markers="bus.markers" 
-                            center="bus.center" 
+                        <leaflet width="100%"
+                            height="400px"
+                            markers="bus.markers"
+                            center="bus.center"
                             maxbounds="bus.maxbounds"
                             defaults="bus.defaults">
                         </leaflet>
