@@ -154,13 +154,12 @@ function MainCtrl($scope, $window, leafletData) {
     };
 
     bus.defaults = {
-        scrollWheelZoom: false,
         minZoom: 4
     };
 
     bus.displaySummary = function(item) {
 
-        leafletData.getMap('map').then(function(map) {
+        leafletData.getMap().then(function(map) {
             map.setView(new L.latLng(item.marker.lat, item.marker.lng), 14, {
                 animate: true
             });
@@ -183,7 +182,7 @@ function MainCtrl($scope, $window, leafletData) {
             }
         }
 
-        this.displaySummary(facility);
+        bus.displaySummary(facility);
 
     });
 
