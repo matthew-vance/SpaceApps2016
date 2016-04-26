@@ -5,6 +5,7 @@ angular.module('app', ['leaflet-directive'])
 function MainCtrl($scope, $window, leafletData) {
     var bus = this;
     bus.message = "In My Backyard";
+    bus.sidebarActive = false;
 
     bus.layers = {
         baselayers: {
@@ -190,6 +191,10 @@ function MainCtrl($scope, $window, leafletData) {
         bus.link = item.link;
         bus.description = item.description;
     };
+
+    bus.toggleSideNav = function(){
+        bus.sidebarActive = !bus.sidebarActive;
+    }
 
     $scope.$on('leafletDirectiveMarker.click', function(e, args) {
         var id = args.model.id;

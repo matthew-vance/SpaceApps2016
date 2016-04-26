@@ -10,53 +10,65 @@
         <link rel="stylesheet" href="styles/styles.css" media="screen" charset="utf-8">
     </head>
     <body ng-controller='MajorTom as bus'>
-        <nav class='navbar navbar-default' ng-cloak>
-            <span class="navbar-brand">{{ bus.message }}</span>
-        </nav>
-        <div id="main-content" class='container-fluid' ng-cloak>
-            <div class='row'>
-                <div class='col-sm-4'>
-                    <ul class='list-group'>
-                        <li class='list-group-item list-group-button' ng-class="bus.selectedItemId === item.marker.id ? 'list-group-button-selected' : ''" ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
-                            {{ item.name }}
-                        </li>
-                    </ul>
+        <div class="page-container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav" ng-click="bus.toggleSideNav()">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">{{ bus.message }}</a>
+                    </div>
                 </div>
+            </nav>
+            <div id="main-content" class='container-fluid' ng-cloak>
+                <div class='row row-offcanvas row-offcanvas-left' ng-class="bus.sidebarActive ? 'active' : ''">
+                    <div class='col-xs-6 col-sm-3 sidebar-offcanvas' id="sidebar" role="navigation">
+                        <ul class='list-group'>
+                            <li class='list-group-item list-group-button' ng-class="bus.selectedItemId === item.marker.id ? 'list-group-button-selected' : ''" ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
+                                {{ item.name }}
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class='col-sm-8'>
-                    <div class='col-sm-12'>
-                        <leaflet width="100%" height="400px" layers="bus.layers" markers="bus.markers" center="bus.center" maxbounds="bus.maxbounds" defaults="bus.defaults"></leaflet>
+                    <div class='col-xs-12 col-sm-9'>
+                        <div class='col-sm-12'>
+                            <leaflet width="100%" height="400px" layers="bus.layers" markers="bus.markers" center="bus.center" maxbounds="bus.maxbounds" defaults="bus.defaults"></leaflet>
 
-                        <div class='col-sm-12 panel panel-default'>
-                            <div class='panel-body'>
+                            <div class='col-sm-12 panel panel-default'>
+                                <div class='panel-body'>
 
-                                <span ng-show='bus.name'>
-                                    <h3>{{bus.name}}</h3>
-                                </span>
-
-                                <span ng-hide='bus.name'>
-                                    <h3>Primary NASA Field Centers</h3>
-                                </span>
-
-                                <p>
-                                    <span ng-show='bus.description'>
-                                        <p>{{bus.description}}</p>
+                                    <span ng-show='bus.name'>
+                                        <h3>{{bus.name}}</h3>
                                     </span>
 
-                                    <span ng-show='bus.link'>
-                                        <a href='{{bus.link}}' target='_blank'>Learn more about
-                                            {{bus.name}}!</a>
+                                    <span ng-hide='bus.name'>
+                                        <h3>Primary NASA Field Centers</h3>
                                     </span>
 
-                                    <span ng-hide='bus.description'>
-                                        NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
-                                    </span>
-                                </p>
+                                    <p>
+                                        <span ng-show='bus.description'>
+                                            <p>{{bus.description}}</p>
+                                        </span>
 
+                                        <span ng-show='bus.link'>
+                                            <a href='{{bus.link}}' target='_blank'>Learn more about
+                                                {{bus.name}}!</a>
+                                        </span>
+
+                                        <span ng-hide='bus.description'>
+                                            NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
+                                        </span>
+                                    </p>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </body>
             <script src="//code.jquery.com/jquery-2.2.3.min.js"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
