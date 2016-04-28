@@ -50,7 +50,7 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
 
             for (var i = 0; i < main.items.length; i++) {
                 var distanceToItem = _mapService.getDistanceFromLatLonInKm(position.coords.latitude, position.coords.longitude, main.items[i].marker.lat, main.items[i].marker.lng);
-                if (distanceToItem <= 10) {
+                if (distanceToItem <= 1) {
                     main.displaySummary(main.items[i]);
                 }
             }

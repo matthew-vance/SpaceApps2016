@@ -124,6 +124,18 @@ function DataService(){
                 },
                 link: "https://en.wikipedia.org/wiki/Langley_Research_Center",
                 description: "Langley Research Center (LaRC) is the oldest of NASA's field centers, located in Hampton, Virginia, United States. LaRC focuses primarily on aeronautical research, though the Apollo lunar lander was flight-tested at the facility and a number of high-profile space missions have been planned and designed on-site. Established in 1917 by the National Advisory Committee for Aeronautics, the Center currently devotes two-thirds of its programs to aeronautics, and the rest to space. LaRC researchers use more than 40 wind tunnels to study improved aircraft and spacecraft safety, performance, and efficiency. Between 1958 and 1963, when NASA started Project Mercury, LaRC served as the main office of the Space Task Group, with the office being transferred to the Manned Spacecraft Center (now the Lyndon B. Johnson Space Center) in Houston in 1962–63."
+            }, {
+                name: "Test location",
+                marker: {
+                    id: 11,
+                    lat: 35.8513484,
+                    lng: -78.7943399,
+                    message: "Test location",
+                    focus: false,
+                    draggable: false
+                },
+                link: "https://en.wikipedia.org/wiki/Test",
+                description: "Test description."
             }];
         },
 
