@@ -93,7 +93,7 @@ function DataService(){
                 marker: {
                     id: 8,
                     lat: 37.4090697,
-                    lng: -122.6153733,
+                    lng: -122.0638253,
                     message: "Ames Research Center",
                     focus: false,
                     draggable: false
