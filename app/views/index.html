@@ -9,25 +9,25 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"/>
         <link rel="stylesheet" href="styles/styles.css" media="screen" charset="utf-8">
     </head>
-    <body ng-controller='MajorTom as bus'>
+    <body ng-controller='MainCtrl as main'>
         <div class="page-container">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav" ng-click="bus.toggleSideNav()">
+                        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav" ng-click="main.toggleSideNav()">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">{{ bus.message }}</a>
+                        <a class="navbar-brand" href="#">{{ main.message }}</a>
                     </div>
                 </div>
             </nav>
             <div id="main-content" class='container-fluid' ng-cloak>
-                <div class='row row-offcanvas row-offcanvas-left' ng-class="bus.sidebarActive ? 'active' : ''">
+                <div class='row row-offcanvas row-offcanvas-left' ng-class="main.sidebarActive ? 'active' : ''">
                     <div class='col-xs-6 col-sm-3 sidebar-offcanvas' id="sidebar" role="navigation">
                         <ul class='list-group'>
-                            <li class='list-group-item list-group-button' ng-class="bus.selectedItemId === item.marker.id ? 'list-group-button-selected' : ''" ng-repeat='item in bus.items' ng-click='bus.displaySummary(item)'>
+                            <li class='list-group-item list-group-button' ng-class="main.selectedItemId === item.marker.id ? 'list-group-button-selected' : ''" ng-repeat='item in main.items' ng-click='main.displaySummary(item)'>
                                 {{ item.name }}
                             </li>
                         </ul>
@@ -35,30 +35,30 @@
 
                     <div class='col-xs-12 col-sm-9'>
                         <div class='col-sm-12'>
-                            <leaflet width="100%" height="400px" layers="bus.layers" markers="bus.markers" center="bus.center" maxbounds="bus.maxbounds" defaults="bus.defaults"></leaflet>
+                            <leaflet width="100%" height="400px" layers="main.layers" markers="main.markers" center="main.center" maxbounds="main.maxbounds" defaults="main.defaults"></leaflet>
 
                             <div class='col-sm-12 panel panel-default'>
                                 <div class='panel-body'>
 
-                                    <span ng-show='bus.name'>
-                                        <h3>{{bus.name}}</h3>
+                                    <span ng-show='main.name'>
+                                        <h3>{{main.name}}</h3>
                                     </span>
 
-                                    <span ng-hide='bus.name'>
+                                    <span ng-hide='main.name'>
                                         <h3>Primary NASA Field Centers</h3>
                                     </span>
 
                                     <p>
-                                        <span ng-show='bus.description'>
-                                            <p>{{bus.description}}</p>
+                                        <span ng-show='main.description'>
+                                            <p>{{main.description}}</p>
                                         </span>
 
-                                        <span ng-show='bus.link'>
-                                            <a href='{{bus.link}}' target='_blank'>Learn more about
-                                                {{bus.name}}!</a>
+                                        <span ng-show='main.link'>
+                                            <a href='{{main.link}}' target='_blank'>Learn more about
+                                                {{main.name}}!</a>
                                         </span>
 
-                                        <span ng-hide='bus.description'>
+                                        <span ng-hide='main.description'>
                                             NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
                                         </span>
                                     </p>
@@ -76,4 +76,6 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
             <script src="scripts/angular-leaflet-directive.min.js"></script>
             <script src="scripts/app.js"></script>
+            <script src="scripts/controllers/main.controller.js"></script>
+            <script src="scripts/services/data.service.js"></script>
         </html>
