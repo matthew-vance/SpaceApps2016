@@ -62,7 +62,14 @@
                                             NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
                                         </span>
                                     </p>
-
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-default" ng-click="main.speak()">
+                                            <span class="glyphicon glyphicon-play"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default" ng-click="main.stop()">
+                                            <span class="glyphicon glyphicon-stop"></span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -75,6 +82,7 @@
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
             <script src="scripts/angular-leaflet-directive.min.js"></script>
+            <script src='//code.responsivevoice.org/responsivevoice.js'></script>
             <script src="scripts/app.js"></script>
             <script src="scripts/controllers/main.controller.js"></script>
             <script src="scripts/services/data.service.js"></script>

@@ -8,12 +8,15 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
 
     main.appName = "In My Backyard";
     main.sidebarActive = false;
+    main.speechSupported = $window.speechSynthesis;
     main.layers = _mapService.getBaseLayers();
     main.items = _dataService.getItems();
     main.markers = _dataService.getMarkers();
     main.maxbounds = _mapService.getMaxBounds();
     main.center = _mapService.getCenter();
     main.defaults = _mapService.getDefaults();
+
+
 
     main.displaySummary = function(item) {
 
@@ -27,6 +30,16 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
 
     main.toggleSideNav = function() {
         main.sidebarActive = !main.sidebarActive;
+    }
+
+    main.speak = function(){
+        responsiveVoice.speak(main.description);
+    }
+
+    main.stop = function(){
+        if(responsiveVoice.isPlaying()){
+            responsiveVoice.cancel();
+        }
     }
 
     $scope.$on('leafletDirectiveMarker.click', function(e, args) {
