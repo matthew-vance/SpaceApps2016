@@ -19,7 +19,7 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
 
 
     main.displaySummary = function(item) {
-
+        main.sidebarActive = false;
         _mapService.zoomToPoint(leafletData, item);
 
         main.selectedItemId = item.marker.id;

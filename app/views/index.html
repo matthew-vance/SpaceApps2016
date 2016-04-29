@@ -48,6 +48,15 @@
                                         <h3>Primary NASA Field Centers</h3>
                                     </span>
 
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-default" ng-click="main.speak()">
+                                            <span class="glyphicon glyphicon-play"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-default" ng-click="main.stop()">
+                                            <span class="glyphicon glyphicon-stop"></span>
+                                        </button>
+                                    </div>
+
                                     <p>
                                         <span ng-show='main.description'>
                                             <p>{{main.description}}</p>
@@ -62,14 +71,6 @@
                                             NASA has research facilities across the country! Click the links above to learn about NASA's primary research sites.
                                         </span>
                                     </p>
-                                    <div class="btn-group" role="group" aria-label="...">
-                                        <button type="button" class="btn btn-default" ng-click="main.speak()">
-                                            <span class="glyphicon glyphicon-play"></span>
-                                        </button>
-                                        <button type="button" class="btn btn-default" ng-click="main.stop()">
-                                            <span class="glyphicon glyphicon-stop"></span>
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
