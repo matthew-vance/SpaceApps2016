@@ -1,9 +1,9 @@
 angular.module("app.services")
     .factory('DataService', DataService);
 
-function DataService(){
+function DataService() {
     return {
-        getItems: function(){
+        getItems: function() {
             return [{
                 name: "Glenn Research Center",
                 marker: {
@@ -139,7 +139,7 @@ function DataService(){
             }];
         },
 
-        getMarkers: function(){
+        getMarkers: function() {
             var items = this.getItems();
 
             var markers = [];
@@ -149,6 +149,45 @@ function DataService(){
             }
 
             return markers;
+        },
+
+        getTourSteps: function() {
+            return [{
+                orphan: true,
+                backdrop: true,
+                title: "In My Backyard Tour!",
+                content: "Thank you for taking the tour of our app! Press then 'Next' button to get started..."
+            }, {
+                element: ".map",
+                title: "Map display",
+                content: "The map displays all the points currently in our dataset.  If you've allowed the browser to get your position this map will automatically update when you are close enough to a point of interest. Cool, huh?!",
+                backdrop: true,
+                placement: "auto"
+            }, {
+                element: ".sidebar-offcanvas",
+                title: "Data Points",
+                content: "Here is a list of all available data points. Clicking one of the points will zoom the map to that point and provide a short description. Try selecting a point now!",
+                backdrop: true,
+                placement: "auto",
+                template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title'></h3><div class='popover-content'></div> <div class='popover-navigation'><button class='btn btn-default' data-role='prev'>« Prev</button><button class='btn btn-default' data-role='end'>End tour</button></div></div>"
+            }, {
+                element: "#description",
+                title: "Description",
+                content: "Below the map Here is where you can find the description of the currently selected data point.  This text is in sync with the map so being physically close to a data point will automatically update the description to that location. Be sure to click the link at the bottom for more information!",
+                backdrop: true,
+                placement: "auto"
+            }, {
+                element: "#play-btn",
+                title: "Play button",
+                content: "Press here to hear the description read aloud to you!",
+                placement: "auto",
+                backdrop: true
+            }, {
+                orphan: true,
+                backdrop: true,
+                title: "Thank you!",
+                content: "Thank you for taking the tour! We hope that you enjoy our app!"
+            }];
         }
     };
 }

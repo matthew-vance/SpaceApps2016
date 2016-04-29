@@ -16,6 +16,19 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
     main.center = _mapService.getCenter();
     main.defaults = _mapService.getDefaults();
 
+    var tour = new Tour({
+        steps: _dataService.getTourSteps()
+    });
+
+    tour.init();
+
+    main.startTour = function() {
+        if (tour.ended()) {
+            tour.restart();
+        } else {
+            tour.start();
+        }
+    }
 
 
     main.displaySummary = function(item) {
@@ -26,18 +39,20 @@ function MainCtrl($scope, $window, leafletData, DataService, MapService) {
         main.name = item.name;
         main.link = item.link;
         main.description = item.description;
+
+        tour.next();
     };
 
     main.toggleSideNav = function() {
         main.sidebarActive = !main.sidebarActive;
     }
 
-    main.speak = function(){
+    main.speak = function() {
         responsiveVoice.speak(main.description);
     }
 
-    main.stop = function(){
-        if(responsiveVoice.isPlaying()){
+    main.stop = function() {
+        if (responsiveVoice.isPlaying()) {
             responsiveVoice.cancel();
         }
     }
