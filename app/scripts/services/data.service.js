@@ -173,7 +173,7 @@ function DataService() {
             }, {
                 element: "#description",
                 title: "Description",
-                content: "Below the map Here is where you can find the description of the currently selected data point.  This text is in sync with the map so being physically close to a data point will automatically update the description to that location. Be sure to click the link at the bottom for more information!",
+                content: "Below the map here is where you can find the description of the currently selected data point.  This text is in sync with the map so being physically close to a data point will automatically update the description to that location. Be sure to click the link at the bottom for more information!",
                 backdrop: true,
                 placement: "auto"
             }, {
